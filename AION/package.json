@@ -1,0 +1,32 @@
+{
+  "name": "titan-default-pack",
+  "version": "1.0.0",
+  "description": "This repository creates a simple setup for blockchain developers to get started with the AION blockchain and make their own packs.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "titan test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/titan-suite-packs/default-pack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://titan-suite.com",
+  "dependencies": {
+    "aion-web3": "^1.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "fs": "0.0.1-security",
+    "mocha": "^5.2.0",
+    "node-zip": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
+}
