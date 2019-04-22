@@ -1,0 +1,21 @@
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+form {
+    margin-top: 12px;
+}
+#chat-messages li {
+    padding: 12px;
+}
+.blue-background {
+    background-color: #30abdf;
+}
+.white {
+    color: #fff;
+}
+.large-text {
+    font-size: 24px;
+}
+.no-show {
+    display: none;
+}

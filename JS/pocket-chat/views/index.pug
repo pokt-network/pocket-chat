@@ -1,0 +1,83 @@
+doctype html
+html
+  head
+    title Pocket Chat
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css')
+    link(rel='stylesheet', href='css/main.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='scripts/main.js')
+  body
+    h1#wallet.no-show #{wallet}
+    #chat-app
+      #chat.has-text-centered
+        section.blue-background.white.large-text
+          .hero-body
+            .container
+              h1.white Pocket Chat
+              h2 Chat Application using Pocket JS SDK
+        h3#status
+        section.section.chat-container
+          .container
+            .columns
+              .box.column.is-8.is-offset-2
+                h2.title Chatbox
+                .chat-messages.has-text-left
+                  ul#chat-messages
+                form
+                  .field.has-addons
+                    p.control
+                      input(type='text', class='input', value='Pirulo', id='name' disabled)
+                    p.control.is-expanded
+                      input(type='text', class='input', placeholder='Try to say something', id='message')
+                    p.control
+                      input(type='submit', class='button is-success', value='Post')
+        footer
+          .container
+            .content
+              p
+                | Powered by
+                a(href='https://pokt.network')  Pocket
+                
+        script.
+            const socket = io();
+            // Send message
+            $('form').submit(function() {
+                const name = JSON.parse($('#wallet').text()).address
+                const message = $('#message').val();
+                // Send message
+                socket.emit('submit-message', {name: name, message: message});
+                //- socket.emit('submit-message', `${name} : ${message}`);
+                $('#message').val('');
+                return false;
+            });
+
+        script.
+            // Update error
+            socket.on('error-update', function(message) {
+              $('#status').text(message)
+            });
+            // Update chat
+            socket.on('chatter', function(message) {
+              var username = formatUsername(message.name)
+              $('#chat-messages').append($('<li>').text(`${username} : ${message.content}`));
+              // Clean chat before updating
+              //- cleanUpChat()
+              //- messages.forEach(function(message) {
+              //-   var username = formatUsername(message.name)
+              //-   console.log(`${username} : ${message.content}`)
+              //-   $('#chat-messages').append($('<li>').text(`${username} : ${message.content}`));
+              //- });
+            });
+            // Update status
+            socket.on('status-update', function(message) {
+              $('#status').text()
+            });
+  script.
+      // Update Username
+      var account = JSON.parse($('#wallet').text())
+      $('#name').val(formatUsername(account.address))
+      // Request chat update
+      socket.emit('chatter-update')
+
+                
