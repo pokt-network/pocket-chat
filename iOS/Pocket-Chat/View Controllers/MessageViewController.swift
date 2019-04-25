@@ -27,6 +27,7 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
         formatter.dateStyle = .medium
         return formatter
     }()
+    var activityIndicator = UIActivityIndicatorView()
     
     // Views
     override func viewDidLoad() {
@@ -47,14 +48,23 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
             InputBarButtonItem.addTarget(self, action: #selector(self.refreshScreen(_:)), for: .touchUpInside)
         }
         let inputItems = [refreshItem]
+        // Message Input bar config
         messageInputBar.leftStackView.alignment = .center
         messageInputBar.setLeftStackViewWidthConstant(to: 30, animated: false)
-        
         messageInputBar.setStackViewItems(inputItems as [InputItem] , forStack: .left, animated: false)
+        
+        // Additional setup
+        activityIndicator = UIActivityIndicatorView(style: .gray)
+//        activityIndicator.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
+        activityIndicator.color = UIColor.blue;
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        activityIndicator.startAnimating()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -98,15 +108,18 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
                     DispatchQueue.main.async {
                         self.messageList = self.messageList.reversed()
                         self.messagesCollectionView.reloadData()
+                        self.activityIndicator.stopAnimating()
                         self.refreshControl.endRefreshing()
                     }
                 } catch {
                     print("Failed with error: \(error)")
+                    self.activityIndicator.stopAnimating()
                 }
                 
             })
         } catch {
             print("Failed with error: \(error)")
+            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -183,7 +196,7 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
     
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         if indexPath.section % 3 == 0 {
-            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
         }
         return nil
     }
