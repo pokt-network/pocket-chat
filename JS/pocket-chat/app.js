@@ -62,7 +62,7 @@ async function getLatestMessages(callback) {
             callback(msgCount);
         }
         io.emit('error-update', {
-            message: "Failed to get messages: " + msgCount
+            content: "Failed to get messages: " + msgCount
         })
         return msgCount;
     }
@@ -79,7 +79,7 @@ async function getLatestMessages(callback) {
                 callback(msg);
             }
             io.emit('error-update', {
-                message: "Failed to get messages: " + msg
+                content: "Failed to get messages: " + msg
             })
         }
     }
@@ -100,7 +100,7 @@ async function _getMessagesWithIndex(index, callback){
             callback(result);
         }
         io.emit('error-update', {
-            message: "Failed to get messages: " + result
+            content: "Failed to get messages: " + result
         })
         return result
     }
@@ -145,7 +145,7 @@ function sendMessage(content) {
                         }
                     } else {
                         io.emit('error-update', {
-                            message: "Failed to check message status, please check again later"
+                            content: "Failed to check message status, please check again later"
                         })
                     }
                 })

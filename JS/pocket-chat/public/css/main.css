@@ -19,6 +19,9 @@ form {
 .no-show {
     display: none;
 }
+.error {
+    color: red
+}
 /* spinner */
 .lds-dual-ring {
     display: inline-block;

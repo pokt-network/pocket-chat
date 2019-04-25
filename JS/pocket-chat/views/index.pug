@@ -16,7 +16,7 @@ html
             .container
               h1.white Pocket Chat
               h2 Chat Application using Pocket JS SDK
-        h3#status
+        h3#status.error
         section.section.chat-container
           .container
             .columns
@@ -56,7 +56,8 @@ html
         script.
             // Update error
             socket.on('error-update', function(message) {
-              $('#status').text(message)
+              $('#spinner').hide()
+              $('#status').text(message.content)
             });
             // Update chat
             socket.on('chatter', function(message) {
