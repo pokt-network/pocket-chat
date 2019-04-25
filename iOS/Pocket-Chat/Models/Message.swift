@@ -15,29 +15,18 @@ import PocketSwift
 // create the models that will store our messages
 // not really needed, just used to test UI
 
-struct Member {
-    let address : String
-}
+struct Message: MessageType {
 
-struct Message {
-    let member: Member
+    var messageId: String
+    var user: User
     let textMessage: String
-    let messageId: String
-}
-
-
-
-extension Message: MessageType {
-    var sender: Sender {
-        return Sender(id: member.address, displayName: member.address)
+    var sender: SenderType {
+        return user
     }
-    
     var sentDate: Date {
         return Date()
     }
-    
     var kind: MessageKind {
         return .text(textMessage)
     }
-
 }
