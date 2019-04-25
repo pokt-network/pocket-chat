@@ -21,6 +21,7 @@ html
           .container
             .columns
               .box.column.is-8.is-offset-2
+                div#spinner.lds-dual-ring
                 h2.title Chatbox
                 .chat-messages.has-text-left
                   ul#chat-messages
@@ -61,18 +62,16 @@ html
             socket.on('chatter', function(message) {
               var username = formatUsername(message.name)
               $('#chat-messages').append($('<li>').text(`${username} : ${message.content}`));
-              // Clean chat before updating
-              //- cleanUpChat()
-              //- messages.forEach(function(message) {
-              //-   var username = formatUsername(message.name)
-              //-   console.log(`${username} : ${message.content}`)
-              //-   $('#chat-messages').append($('<li>').text(`${username} : ${message.content}`));
-              //- });
             });
             // Update status
             socket.on('status-update', function(message) {
               $('#status').text()
             });
+            // Stop spinner
+            socket.on('stop-spinner', function() {
+              $('#spinner').hide()
+            });
+            
   script.
       // Update Username
       var account = JSON.parse($('#wallet').text())

@@ -43,6 +43,7 @@ io.on('connection', (socket) => {
     })
     // Update chat list on the client
     socket.on('chatter-update', () => {
+        messages = []
         getLatestMessages( function(status) {
             if (status == true) {
                 console.log("Messages loaded successfully")
@@ -68,18 +69,25 @@ async function getLatestMessages(callback) {
 
     // Parse response
     var count = BigInt(msgCount[0]).toString()
-    count = parseInt(count, 10) - 1
+    count = parseInt(count, 10)
     // Request messages by index
-    for (let index = 0; index < 100; index++) {
-        if (index <= count) {
-            var msg = await _getMessagesWithIndex(count - index)
-            if (!msg instanceof Error) {
-                
+    while (count > 0) {
+        count--
+        var msg = await _getMessagesWithIndex(count)
+        if (!msg instanceof Error) {
+            if (callback) {
+                callback(msg);
             }
+            io.emit('error-update', {
+                message: "Failed to get messages: " + msg
+            })
         }
     }
-    // io.emit('chatter', messages)
-
+    messages = messages.reverse()
+    messages.forEach( function(message){
+        io.emit('chatter', message)
+    })
+    io.emit('stop-spinner')
     if (callback) {
         callback(true)
     }
@@ -98,7 +106,6 @@ async function _getMessagesWithIndex(index, callback){
     }
     // Create message object
     var msg = {index: index, name: result[0], content: result[1]}
-    io.emit('chatter', msg)
     _pushUnique(msg)
 
     return msg
