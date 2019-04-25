@@ -22,6 +22,15 @@ form {
 .error {
     color: red
 }
+.has-text-left {
+    height: 240px;
+    overflow-y: scroll;
+    /* border-color: #30abdf; */
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    /* border-width: 1px;
+    border-style: solid; */
+    border-radius: 2px;
+}
 /* spinner */
 .lds-dual-ring {
     display: inline-block;
