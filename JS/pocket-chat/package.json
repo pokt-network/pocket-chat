@@ -1,0 +1,34 @@
+{
+  "name": "pocket-chat",
+  "version": "1.0.0",
+  "description": "Pocket Network Chat App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pokt-network/pocket-chat.git"
+  },
+  "keywords": [
+    "pocket",
+    "network",
+    "chat",
+    "dapp",
+    "app",
+    "blockchain"
+  ],
+  "author": "Pabel Nunez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pokt-network/pocket-chat/issues"
+  },
+  "homepage": "https://github.com/pokt-network/pocket-chat#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pocket-js-aion": "0.0.1",
+    "pug": "^2.0.3",
+    "socket.io": "^2.2.0"
+  }
+}
