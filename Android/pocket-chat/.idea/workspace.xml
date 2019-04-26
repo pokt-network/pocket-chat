@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="88cea3b7-f7e4-4a1e-b8ef-17795daa8995" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_conceal_conceal_1_1_3_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_LiquidPlayer_LiquidCore_0_5_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_nulab_inc_zxcvbn_1_2_3_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_orhanobut_hawk_2_0_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_pvryan_easycrypt_easycrypt_1_3_3_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_13_1_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_17_2_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_gson_2_3_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_retrofit_2_3_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__network_pocket_android_aion_0_0_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__network_pocket_android_core_0_0_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_anko_anko_commons_0_10_1_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_21_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_21_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_3_21_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_stfalcon_chatkit_0_3_3_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_flexbox_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/myapplication/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/myapplication/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/Main2Activity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MessageState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/chat_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/import_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin-build/version.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/pocket-android-aion.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/androidTest/java/network/pokt/aion/AionContractTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/androidTest/java/network/pokt/aion/EthRpcTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/androidTest/java/network/pokt/aion/NetRpcTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/androidTest/java/network/pokt/aion/PocketAionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/androidTest/java/network/pokt/aion/util/SemaphoreUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/AionContract.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/PocketAion.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/abi/v2/Function.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/abi/v2/InputOutput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/exceptions/AionContractException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/models/AionRelay.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/network/AionNetwork.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/operations/BaseOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/operations/CreateTransactionOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/operations/CreateWalletOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/operations/DecodeFunctionCallOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/operations/EncodeFunctionCallOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/operations/ImportWalletOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/operations/OperationUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/rpc/EthRpc.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/rpc/NetRpc.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/rpc/callbacks/Callbacks.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/rpc/types/BlockTag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/rpc/types/ObjectOrBoolean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/util/HexStringUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/java/network/pokt/aion/util/RawFileUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/aion_instance.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/biginteger.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/blocknumber.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/call.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/create_transaction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/create_wallet.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/decode_function_call.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/encode_function_call.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/estimategas.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getbalance.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getblockbyhash.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getblockbynumber.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getblocktransactioncountbyhash.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getblocktransactioncountbynumber.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getcode.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getlogs.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getproof.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getstorageat.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/gettransactionbyblockhashandindex.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/gettransactionbyblocknumberandindex.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/gettransactionbyhash.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/gettransactioncount.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/gettransactionreceipt.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getunclebyblockhashandindex.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getunclebyblocknumberandindex.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getunclecountbyblockhash.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/getunclecountbyblocknumber.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/globals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/import_wallet.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/listening.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/nrgprice.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/peercount.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/pocket_test_abi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/protocolversion.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/syncing.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/version.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/raw/web3_aion.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-aion/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/pocket-android-core.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/androidTest/java/network/pokt/core/PocketTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/androidTest/java/network/pokt/core/WalletTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/androidTest/java/network/pokt/core/util/PocketTestPlugin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/androidTest/java/network/pokt/core/util/SemaphoreUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/Pocket.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/errors/PocketError.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/errors/WalletPersistenceError.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/extensions/JsonObjectExtension.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/model/Blockchain.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/model/Configuration.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/model/Dispatch.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/model/Node.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/model/Relay.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/model/Report.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/model/Wallet.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/net/Constants.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/net/PocketAPI.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/java/network/pokt/core/util/Utils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-core/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/pocket-android-eth.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/androidTest/java/network/pokt/eth/EthContractTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/androidTest/java/network/pokt/eth/EthRpcTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/androidTest/java/network/pokt/eth/NetRpcTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/androidTest/java/network/pokt/eth/PocketEthTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/androidTest/java/network/pokt/eth/util/SemaphoreUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/EthContract.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/PocketEth.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/abi/v2/Function.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/abi/v2/FunctionCallDecoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/abi/v2/InputOutput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/abi/v2/InputOutputTypes.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/exceptions/EthContractException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/models/EthRelay.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/network/EthNetwork.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/rpc/EthRpc.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/rpc/NetRpc.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/rpc/callbacks/Callbacks.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/rpc/types/BlockTag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/rpc/types/ObjectOrBoolean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/util/HexStringUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/java/network/pokt/eth/util/RawFileUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/res/raw/pocket_test_abi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android-eth/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/pocket-android.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/androidTest/java/network/pokt/pocket_android/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/java/network/pokt/pocket_android/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/layout/content_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pocket-android/src/test/java/network/pokt/pocket_android/ExampleUnitTest.kt" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="418244133">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/activitycontrol/LoginActivities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/smartcontract/SendToContract.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/activitycontrol/LoginActivities.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/smartcontract/SendToContract.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="pocket-chat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="pocket-chat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="pocket-chat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="myapplication" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pocket-chat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="myapplication" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="activitityscreen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pocket-chat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="myapplication" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="activitycontrol" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pocket-chat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="myapplication" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="smartcontract" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pocket-chat" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="generatedJava" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="88cea3b7-f7e4-4a1e-b8ef-17795daa8995" name="Default Changelist" comment="" />
+      <created>1556299723532</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556299723532</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.32956383" />
+      <window_info id="Structure" side_tool="true" />
+      <window_info id="Build Variants" side_tool="true" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Logcat" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="bottom" id="Android Profiler" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Build" visible="true" weight="0.32909605" />
+      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Gradle" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Palette&#9;" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/activitycontrol/LoginActivities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/smartcontract/SendToContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
