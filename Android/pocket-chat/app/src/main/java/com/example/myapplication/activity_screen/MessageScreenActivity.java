@@ -1,4 +1,4 @@
-package com.example.myapplication.activitityscreen;
+package com.example.myapplication.activity_screen;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -20,15 +20,11 @@ import network.pocket.aion.PocketAion;
 public class MessageScreenActivity extends AppCompatActivity {
 
     private EditText editText;
-
     private MessageState messageState;
-
     private ListView messagesView;
-
-    public PocketAion pocketAion;
-
     private SendToContract sendToContract;
 
+    public PocketAion pocketAion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +38,6 @@ public class MessageScreenActivity extends AppCompatActivity {
         //new SendToContract();
 
     }
-
 
         public void sendText (View send) throws JSONException {
 
@@ -101,7 +96,7 @@ public class MessageScreenActivity extends AppCompatActivity {
 
             //ContractABI messageContract = new ContractABI();
 
-            boolean istrue = message.isBelongsToCurrentUser();
+            boolean istrue = message.belongsToCurrentUser();
             String userText = message.getText();
 
             Log.d("userText", userText);

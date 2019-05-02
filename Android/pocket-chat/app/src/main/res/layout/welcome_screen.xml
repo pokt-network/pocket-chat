@@ -8,20 +8,35 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
-
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:id="@+id/backgroundIMG"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/B1x2" />
+    android:layout_height="wrap_content"
+    android:background="@drawable/b1x2"
+    >
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/backgroundIMG"
-        android:layout_marginTop="269dp"
+        android:layout_width="309dp"
+        android:layout_height="267dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="171dp"
+        android:layout_marginEnd="51dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/logo-x2" />
+        android:gravity="center_vertical"
+        android:src="@drawable/logo_x2" />
+
+    <Button
+        android:id="@+id/letsGetStarted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="552dp"
+        android:layout_marginBottom="110dp"
+        android:background="@null"
+        android:text="Let's get started"
+        android:textColor="#ffff" />
+
 </RelativeLayout>

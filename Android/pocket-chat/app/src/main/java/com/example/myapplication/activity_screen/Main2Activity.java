@@ -1,4 +1,4 @@
-package com.example.myapplication.activitityscreen;
+package com.example.myapplication.activity_screen;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.myapplication.R;
-import com.example.myapplication.activitityscreen.CreateWalletActivity;
-import com.example.myapplication.activitityscreen.MessageScreenActivity;
 
 public class Main2Activity extends AppCompatActivity {
 

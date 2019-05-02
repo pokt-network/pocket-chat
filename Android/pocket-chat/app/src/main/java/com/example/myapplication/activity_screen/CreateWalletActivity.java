@@ -1,26 +1,15 @@
-package com.example.myapplication.activitityscreen;
+package com.example.myapplication.activity_screen;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.activitycontrol.LoginActivities;
-import com.example.myapplication.activitycontrol.LoginActivities;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import network.pocket.aion.*;
 
@@ -37,12 +26,11 @@ public class CreateWalletActivity extends Activity {
         Button import_W = (Button)findViewById(R.id.ImportScreen);
         Button create_W = (Button)findViewById(R.id.CreateWallet);
 
-
         Context appContext = this.getApplicationContext();
 
         LoginActivities loginActivities = new LoginActivities(appContext);
 
-        /* calls the longinactivity class and returns the address of the
+        /* calls the loginActivity class and returns the address of the
            wallet as well as the private key
         */
 
@@ -62,14 +50,13 @@ public class CreateWalletActivity extends Activity {
             }
         });
 
-
         // in case someone has a key to import, allow them to go back
 
         import_W.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick (View iw) {
-                openIW();
+                openImportWalletActivity();
             }
         });
 
@@ -80,28 +67,27 @@ public class CreateWalletActivity extends Activity {
             public void onClick(View cs)
 
             {
-
-                openCS();
+                openChatActivity();
             }
 
         } );
 
     }
 
-    public void openIW() {
+    public void openImportWalletActivity() {
 
-        Intent iwintent = new Intent(this, Main2Activity.class);
+        Intent importwalletIntent = new Intent(this, Main2Activity.class);
 
-        startActivity(iwintent);
+        startActivity(importwalletIntent);
 
     }
 
-    public void openCS() {
+    public void openChatActivity() {
 
-        Intent csintent = new Intent(this, MessageScreenActivity.class);
-
+        Intent chatActivityIntent = new Intent(this, MessageScreenActivity.class);
+//        chatActivityIntent.putExtra("Wallet", )
         //TODO save the newly created wallet private key to use for the app then send to chat-screen
-        startActivity(csintent);
+        startActivity(chatActivityIntent);
 
     }
 }

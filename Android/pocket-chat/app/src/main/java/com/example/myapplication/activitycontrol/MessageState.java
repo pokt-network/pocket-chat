@@ -61,7 +61,7 @@ public class MessageState extends BaseAdapter {
         Message message = messages.get(i);
 
          // this message was sent by us so let's create a basic chat bubble on the right
-        if (message.isBelongsToCurrentUser()) {
+        if (message.belongsToCurrentUser()) {
             convertView = messageInflater.inflate(R.layout.my_message, null);
             holder.messageBody = (TextView) convertView.findViewById(R.id.message_body);
             convertView.setTag(holder);

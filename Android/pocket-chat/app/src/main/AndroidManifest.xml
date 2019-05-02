@@ -14,15 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activitityscreen.MessageScreenActivity"></activity>
-        <activity android:name=".activitityscreen.CreateWalletActivity" />
+        <activity android:name=".activity_screen.MessageScreenActivity"></activity>
+        <activity android:name=".activity_screen.CreateWalletActivity" />
         <activity
-            android:name=".activitityscreen.Main2Activity"
+            android:name=".activity_screen.Main2Activity"
             android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity_screen.WelcomeActivity">
+            android:label="@string/Welcome"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
