@@ -17,13 +17,13 @@
         <activity android:name=".activity_screen.MessageScreenActivity"></activity>
         <activity android:name=".activity_screen.CreateWalletActivity" />
         <activity
-            android:name=".activity_screen.Main2Activity"
+            android:name=".activity_screen.ImportWalletActivity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".activity_screen.WelcomeActivity">
-            android:label="@string/Welcome"
+            android:name=".activity_screen.WelcomeActivity"
+            android:label="Welcome"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

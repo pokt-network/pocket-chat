@@ -1,89 +1,90 @@
 package com.example.myapplication.activity_screen;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.utils.AppConfig;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
-import network.pocket.aion.*;
+import network.pocket.aion.PocketAion;
 import network.pocket.core.errors.WalletPersistenceError;
 import network.pocket.core.model.Wallet;
 
-public class CreateWalletActivity extends Activity {
-
+public class ImportWalletActivity extends AppCompatActivity {
     PocketAion pocketAion;
-    Context appContext;
     Wallet wallet;
+    Context appContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_wallet);
+        setContentView(R.layout.import_wallet);
 
-        // Create wallet and continue button
-        Button create_W = (Button)findViewById(R.id.import_wallet_btn);
-        Button continue_Btn = (Button)findViewById(R.id.continue_btn);
+        Button import_W = (Button)findViewById(R.id.import_wallet_btn);
+        Button create_W = (Button)findViewById(R.id.create_wallet_btn);
 
-        // Creates a wallet
-        create_W.setOnClickListener(new View.OnClickListener() {
+        import_W.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View iw) {
-                createWallet();
-            }
-        });
-        // The continue button action shows the message activity
-        continue_Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View cs) {
-                loadMessagesActivity();
+            public void onClick(View importView) {
+                importWallet();
             }
         } );
-        // Set app context
-        this.appContext = CreateWalletActivity.this;
+
+        create_W.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View cw) {
+                showCreateWallet();
+            }
+        });
+
+        this.appContext = ImportWalletActivity.this;
         // Instantiate PocketAion
         List<String> netIds = new ArrayList<>();
         netIds.add(PocketAion.Networks.MASTERY.getNetID());
         this.pocketAion = new PocketAion(this.appContext,"", netIds,5,50000,"32");
     }
+    protected void importWallet() {
+        TextView private_key_text = (TextView)findViewById(R.id.private_key_text);
+        String privateKey = private_key_text.getText().toString();
 
-    protected void createWallet() {
-        wallet = this.pocketAion.getMastery().createWallet();
+        if (privateKey.trim().length() > 0) {
+            this.wallet = this.pocketAion.getMastery().importWallet(privateKey);
 
-        showPassphraseDialog(wallet);
-    }
-
-    protected void loadMessagesActivity() {
-        if (this.wallet != null ){
-            Intent messageScreenIntent = new Intent(this, MessageScreenActivity.class);
-            messageScreenIntent.putExtra("address", wallet.getAddress());
-            messageScreenIntent.putExtra("privateKey", wallet.getPrivateKey());
-
-            startActivity(messageScreenIntent);
-        }else {
-            showDialog("No wallet has been created, please create a new wallet to continue.");
+            if (wallet != null) {
+                showPassphraseDialog(this.wallet);
+            }else{
+                showDialog("Failed to import the wallet, please try again.");
+            }
+        }else{
+            showDialog("The private key field is empty, please add the private key.");
         }
-    }
 
+    }
+    protected void loadMessagesActivity() {
+        Intent messageScreenIntent = new Intent(this, MessageScreenActivity.class);
+        messageScreenIntent.putExtra("address", wallet.getAddress());
+        messageScreenIntent.putExtra("privateKey", wallet.getPrivateKey());
+
+        startActivity(messageScreenIntent);
+    }
     protected void showPassphraseDialog(Wallet wallet) {
-        // App context
-        Context appContext = this.appContext;
         // get passphrase_dialog.xml view
-        LayoutInflater layoutInflater = LayoutInflater.from(CreateWalletActivity.this);
+        LayoutInflater layoutInflater = LayoutInflater.from(ImportWalletActivity.this);
         View promptView = layoutInflater.inflate(R.layout.passphrase_dialog, null);
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(CreateWalletActivity.this);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ImportWalletActivity.this);
         alertDialogBuilder.setView(promptView);
 
         final TextView editText = (TextView) promptView.findViewById(R.id.private_key_text);
@@ -94,15 +95,15 @@ public class CreateWalletActivity extends Activity {
                         if (editText.getText().toString().trim().length() > 0){
                             String passphrase = editText.getText().toString();
 
-                            wallet.save(passphrase, appContext, new Function1<WalletPersistenceError, Unit>() {
+                            wallet.save(passphrase, ImportWalletActivity.this, new Function1<WalletPersistenceError, Unit>() {
                                 @Override
                                 public Unit invoke(WalletPersistenceError walletPersistenceError) {
-                                    CreateWalletActivity.this.loadMessagesActivity();
+                                    ImportWalletActivity.this.loadMessagesActivity();
                                     return null;
                                 }
                             });
                         }else{
-                            CreateWalletActivity.this.showPassphraseDialog(wallet);
+                            ImportWalletActivity.this.showPassphraseDialog(wallet);
                         }
                     }
                 })
@@ -133,4 +134,9 @@ public class CreateWalletActivity extends Activity {
         AlertDialog alert11 = builder1.create();
         alert11.show();
     }
+    public void showCreateWallet() {
+        Intent create_wallet_intent = new Intent(this, CreateWalletActivity.class);
+        startActivity(create_wallet_intent);
+    }
+
 }
