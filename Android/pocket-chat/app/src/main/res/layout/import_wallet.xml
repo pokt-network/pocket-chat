@@ -45,7 +45,7 @@
         android:width="130dp"
         android:background="@android:color/transparent"
         android:backgroundTint="#2A3580"
-        android:enabled="false"
+        android:enabled="true"
         android:text="Create a Wallet"
         android:textColor="#F7F6F6"
         app:layout_constraintEnd_toEndOf="parent"

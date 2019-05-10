@@ -137,7 +137,7 @@ public class MessageScreenActivity extends AppCompatActivity {
                                             msg.setBelongsToCurrentUser(true);
                                         }
                                         MessageScreenActivity.this.messages.add(msg);
-                                        updateChatView(msg);
+                                        MessageScreenActivity.this.updateChatView(msg);
                                         return null;
                                     }
                                 });
