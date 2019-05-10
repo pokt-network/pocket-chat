@@ -47,6 +47,7 @@ public class MessageScreenActivity extends AppCompatActivity {
         setContentView(R.layout.chat_screen);
         editText = (EditText) findViewById(R.id.editText);
 
+        messages = new ArrayList<>();
         messageState = new MessageState(this);
         messagesView = (ListView) findViewById(R.id.messages_view);
         messagesView.setAdapter(messageState);
@@ -136,8 +137,8 @@ public class MessageScreenActivity extends AppCompatActivity {
                                         if (msg.getSender() == MessageScreenActivity.this.wallet.getAddress()){
                                             msg.setBelongsToCurrentUser(true);
                                         }
-                                        MessageScreenActivity.this.messages.add(msg);
-                                        MessageScreenActivity.this.updateChatView(msg);
+                                        messages.add(msg);
+                                        updateChatView(msg);
                                         return null;
                                     }
                                 });
