@@ -49,7 +49,7 @@ public class WelcomeActivity extends AppCompatActivity {
         if (walletRecordKeys.size() > 0) {
             String[] addressInfo = walletRecordKeys.get(0).split("/");
             String address = addressInfo[2];
-            this.showPassphraseDialog(address, "Wallet passphrase");
+            this.showPassphraseDialog(address, "Please enter the wallet passphrase");
         }else {
             this.loadCreateImportWalletActivity();
         }

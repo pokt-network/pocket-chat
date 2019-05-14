@@ -18,7 +18,7 @@ public class Message {
         return sender;
     }
     public String getUsername() {
-        String username = sender.substring(0,4) + sender.substring(sender.length() - 4, sender.length());
+        String username = sender.substring(0,4) + "..." + sender.substring(sender.length() - 4, sender.length());
         return username;
     }
     public void setBelongsToCurrentUser(boolean bool) {

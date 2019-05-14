@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Pocket Chat</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_login">Sign in</string>
     <!-- Strings related to import_login -->

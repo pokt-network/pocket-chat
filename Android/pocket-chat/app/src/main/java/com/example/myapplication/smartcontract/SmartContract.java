@@ -47,17 +47,16 @@ public class SmartContract {
         this.messages = new ArrayList<>();
     }
 
-    public void sendMessage(Message message) throws JSONException {
+    public void sendMessage(Message message, Wallet wallet) throws JSONException {
         String userText = message.getText();
-        String username = message.getSender();
 
         ArrayList<Object> functionParams = new ArrayList<>();
-        functionParams.add("0xa0500bbb5b3d4556a4f93bf536a29d1edca0e4f50d7df3749053e03660c16a91");
+        functionParams.add(wallet.getAddress());
         functionParams.add(userText);
 
-        //execute contract
+        //execute contract function
         try {
-            this.aionContract.executeFunction("sendMessage", wallet, functionParams, null, new BigInteger("150000"), new BigInteger("20000000000"), null, new Function2<PocketError, String, Unit>() {
+            this.aionContract.executeFunction("sendMessage", wallet, functionParams, null, new BigInteger("300000"), new BigInteger("20000000000"), new BigInteger("0"), new Function2<PocketError, String, Unit>() {
                 @Override
                 public Unit invoke(PocketError pocketError, String result) {
                     if (pocketError != null) {

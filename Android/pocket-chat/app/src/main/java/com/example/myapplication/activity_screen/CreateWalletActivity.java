@@ -87,6 +87,9 @@ public class CreateWalletActivity extends Activity {
         alertDialogBuilder.setView(promptView);
 
         final TextView editText = (TextView) promptView.findViewById(R.id.private_key_text);
+        final TextView titleText = (TextView) promptView.findViewById(R.id.dialog_title);
+        // setup a dialog window
+        titleText.setText("Enter a new passphrase.");
         // setup a dialog window
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
