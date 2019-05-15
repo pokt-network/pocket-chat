@@ -77,7 +77,10 @@ html
       // Update Username
       var account = JSON.parse($('#wallet').text())
       $('#name').val(formatUsername(account.address))
-      // Request chat update
-      socket.emit('chatter-update')
+      $( document ).ready(function() {
+        // Request chat update
+        socket.emit('chatter-update')
+      });
+      
 
                 

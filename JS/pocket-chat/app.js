@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express()
 const path = require('path')
 const APP_PORT = 3000
@@ -12,25 +13,69 @@ const io = require('socket.io').listen(server)
 // Pocket Aion
 const AionPackage = require('pocket-js-aion')
 const pocketAion = new AionPackage.PocketAion("", [32], 10, 10000);
-const aionContract = new AionPackage.AionContract(pocketAion.mastery, "0xA0dC0a5E880F2ea7fb74eA9fB5319fe9ee98968F0B06bCAC535e7EF0152e8aC9", abi);
-// Aion Wallet
-const privateKey = ""
-const wallet = pocketAion.mastery.importWallet(privateKey)
+const smartContractAddress = "0xA0dC0a5E880F2ea7fb74eA9fB5319fe9ee98968F0B06bCAC535e7EF0152e8aC9";
+const aionContract = new AionPackage.AionContract(pocketAion.mastery, smartContractAddress, abi);
+var wallet = null;
 // Messages
 var messages = []
 // Views
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 app.use(express.static('public'))
-
-// Home
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// Welcome View
 app.get('/', (req, res) => {
-    res.render('index', {
+    res.render('welcome', {
+        // wallet: JSON.stringify(wallet)
+    })
+})
+// Import View
+app.get('/import', (req, res) => {
+    res.render('import')
+})
+// Import Wallet Action
+app.post('/import', (req, res) => {
+    var importedWallet = pocketAion.mastery.importWallet(req.body.key);
+    if (importedWallet instanceof Error) {
+        io.emit('error-update', {
+            content: "Failed to import wallet with error: "+importedWallet.message
+        })
+    }else {
+        wallet = importedWallet;
+        res.redirect("/chat") 
+    }
+})
+// Create Wallet
+app.get('/create', (req, res) => {
+    res.render('create')
+})
+// Chat View
+app.get('/chat', (req, res) => {
+    res.render('chat', {
         wallet: JSON.stringify(wallet)
     })
 })
 // On Connection
 io.on('connection', (socket) => {
+    // Create wallet
+    socket.on('create-wallet', () => {
+        wallet = pocketAion.mastery.createWallet();
+
+        if (wallet instanceof Error) {
+            io.emit('error-update', {
+                content: "Failed to create wallet with error: "+wallet.message
+            })
+        }else {
+            io.emit('wallet-created', wallet)
+        }
+    })
+    // Move to Chat with imported wallet
+    socket.on('show-chat', (wallet) => {
+        res.render('chat', {
+            wallet: JSON.stringify(wallet)
+        })
+    })
     // Send message to the client
     socket.on('chatter', (message) => {
         console.log('chatter = message : ', `${message.name} : ${message.message}`)
@@ -66,13 +111,12 @@ async function getLatestMessages(callback) {
         })
         return msgCount;
     }
-
     // Parse response
     var count = BigInt(msgCount[0]).toString()
     count = parseInt(count, 10)
     // Request messages by index
     while (count > 0) {
-        count--
+        count--;
         var msg = await _getMessagesWithIndex(count)
         if (!msg instanceof Error) {
             if (callback) {

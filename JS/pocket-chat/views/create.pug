@@ -1,0 +1,63 @@
+doctype html
+html
+  head
+    title Pocket Chat
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css')
+    link(rel='stylesheet', href='css/main.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  body
+    #chat-app
+      #chat.has-text-centered
+        section.section.zero-padding-top
+          h3#status.error
+          div.container.container-medium.import-background.background
+            h1(style="font-size: xx-large;color:white;display:block;margin-left: auto;margin-right: auto;padding-top:110px;padding-bottom:50px;") Create Wallet
+            form(id="create" action="/create" method="get" style="color:white;")
+              | Wallet Address:
+              br
+              br
+              textarea(disabled id="public-key" rows="3" cols="50")
+              br
+              br
+              | Private Key:
+              br
+              br
+              textarea(disabled id="private-key" rows="14" cols="50")
+              br
+              br
+              button(style="font-size: large;color:white;height: 45px; width: 120px;background-color:#2A3680") Create
+              br
+              br
+            form(id="continue-form" action="/chat" method="get" style="color:white;")
+              button(id="continue" style="font-size: large;color:white;height: 45px; width: 120px;background-color:#2A3680;") Continue
+
+        footer
+          .container
+            .content
+              p
+                | Powered by
+                a(href='https://pokt.network')  Pocket
+
+script.
+    $('#continue').hide();
+    const socket = io();
+    // Update error
+    socket.on('error-update', function(message) {
+      $('#status').text(message.content)
+    });
+    // Update UI with new wallet info
+    socket.on('wallet-created', function(wallet) {
+      $('#public-key').val(wallet.address);
+      $('#private-key').val(wallet.privateKey);
+      $('#continue').show();
+    });
+    $('#create').submit(function() {
+      socket.emit('create-wallet');
+      return false
+    });
+    $('#continue-form').submit(function() {
+      return true
+    });
+
+                
