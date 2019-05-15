@@ -1,0 +1,60 @@
+doctype html
+html
+  head
+    title Pocket Chat
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css')
+    link(rel='stylesheet', href='css/main.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  body
+    #chat-app
+      #chat.has-text-centered
+        section.section.zero-padding-top
+          h3#status.error
+          div.container.container-medium.import-background.background
+            h1(style="font-size: xx-large;color:white;display:block;margin-left: auto;margin-right: auto;padding-top:110px;padding-bottom:50px;") Import Wallet
+            form(action="/import" method="post" style="color:white;")
+              | Private Key:
+              br
+              br
+              textarea(id="private-key" rows="14" cols="50")
+              <input type="hidden" name="key" id="key">
+              br
+              br
+              button(style="font-size: large;color:white;height: 45px; width: 120px;background-color:#2A3680") Import
+              br
+              br
+              br
+            a(href="/create" style="font-size: large;color:white;display:block;margin-left: auto;margin-right: auto;margin-top:20px;background-color:#2A3680;height:55px;width:150px;padding-top: 15px;") Create Wallet
+        footer
+          .container
+            .content
+              p
+                | Powered by
+                a(href='https://pokt.network')  Pocket
+
+script.
+    const socket = io();
+    // Update error message
+    socket.on('error-update', function(message) {
+      $('#status').text(message.content)
+    });
+    function createWallet(){
+      
+    }
+    // Form submission
+    $('form').submit(function() {
+      var privateKey = $('#private-key').val();
+      console.log("PrivateKety = "+privateKey);
+      if (privateKey.length > 0) {
+        $('input#key').val(privateKey);
+        console.log("Input PrivateKety = "+$('input#key').val());
+        return true;
+      }else{
+        $('#status').text("Private Key can't be empty.")
+        return false;
+      }
+      return false
+    });
+
+                

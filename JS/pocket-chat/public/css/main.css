@@ -22,6 +22,10 @@ form {
 .error {
     color: red
 }
+.container-medium {
+    width:800px;
+    height:800px;
+}
 .has-text-left {
     height: 240px;
     overflow-y: scroll;
@@ -30,6 +34,38 @@ form {
     /* border-width: 1px;
     border-style: solid; */
     border-radius: 2px;
+}
+.medium-height {
+    height: 600px;
+}
+.clear {
+    opacity: 0;
+}
+.zero-padding-top {
+    padding-top: 0;
+}
+.negative-z-index {
+    z-index: -1;
+}
+.default-background {
+    background-image: url("../images/b1x1.png");
+}
+.import-background {
+    background-image: url("../images/bb.png");
+
+}
+.background {
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    border-radius: 2px;
+}
+a {
+    cursor: pointer;
+}
+.cover {
+    height: 100%;
+    width: 100%;
 }
 /* spinner */
 .lds-dual-ring {
