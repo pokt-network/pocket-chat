@@ -3,18 +3,18 @@ const bodyParser = require('body-parser')
 const app = express()
 const path = require('path')
 const APP_PORT = 3000
-const abi = [{"outputs":[{"name":"","type":"address"},{"name":"","type":"string"}],"constant":true,"payable":false,"inputs":[{"name":"_index","type":"uint128"}],"name":"getMessageByIndex","type":"function"},{"outputs":[{"name":"","type":"uint128"}],"constant":true,"payable":false,"inputs":[],"name":"getTotalMessageCount","type":"function"},{"outputs":[],"constant":false,"payable":false,"inputs":[{"name":"_sender","type":"address"},{"name":"_content","type":"string"}],"name":"sendMessage","type":"function"}]
+const abi = [{"constant":true,"inputs":[{"name":"_index","type":"uint256"}],"name":"getMessageByIndex","outputs":[{"name":"","type":"address"},{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getTotalMessageCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_sender","type":"address"},{"name":"_content","type":"string"}],"name":"sendMessage","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 // Server
 const server = app.listen(APP_PORT, () => {
     console.log(`App running on port ${APP_PORT}`)
 })
 // io
 const io = require('socket.io').listen(server)
-// Pocket Aion
-const AionPackage = require('pocket-js-aion')
-const pocketAion = new AionPackage.PocketAion("", [32], 10, 10000);
-const smartContractAddress = "0xA0dC0a5E880F2ea7fb74eA9fB5319fe9ee98968F0B06bCAC535e7EF0152e8aC9";
-const aionContract = new AionPackage.AionContract(pocketAion.mastery, smartContractAddress, abi);
+// Pocket Eth
+const EthPackage = require('pocket-js-eth');
+const pocketEth = new EthPackage.PocketEth("", [4], 10, 10000);
+const smartContractAddress = "0x0b4515fa7e8287f2da3e8776a239a5d6a493b878";
+const ethContract = new EthPackage.EthContract(pocketEth.rinkeby, smartContractAddress, abi);
 var wallet = null;
 // Messages
 var messages = []
@@ -36,7 +36,7 @@ app.get('/import', (req, res) => {
 })
 // Import Wallet Action
 app.post('/import', (req, res) => {
-    var importedWallet = pocketAion.mastery.importWallet(req.body.key);
+    var importedWallet = pocketEth.rinkeby.importWallet(req.body.key);
     if (importedWallet instanceof Error) {
         io.emit('error-update', {
             content: "Failed to import wallet with error: "+importedWallet.message
@@ -60,7 +60,7 @@ app.get('/chat', (req, res) => {
 io.on('connection', (socket) => {
     // Create wallet
     socket.on('create-wallet', () => {
-        wallet = pocketAion.mastery.createWallet();
+        wallet = pocketEth.rinkeby.createWallet();
 
         if (wallet instanceof Error) {
             io.emit('error-update', {
@@ -100,7 +100,7 @@ io.on('connection', (socket) => {
 // Retrieve a list of messages from the blockchain
 async function getLatestMessages(callback) {
     // Get total messages count
-    var msgCount = await aionContract.executeConstantFunction("getTotalMessageCount", [], null, 50000, 20000000000, null)
+    var msgCount = await ethContract.executeConstantFunction("getTotalMessageCount", [], null, 100000, 10000000000, null)
     // Check for errors
     if (msgCount instanceof Error) {
         if (callback) {
@@ -138,7 +138,7 @@ async function getLatestMessages(callback) {
     return true
 }
 async function _getMessagesWithIndex(index, callback){
-    var result = await aionContract.executeConstantFunction("getMessageByIndex", [index], null, 50000, 20000000000, null)
+    var result = await ethContract.executeConstantFunction("getMessageByIndex", [index], null, 100000, 10000000000, null)
     if (result instanceof Error) {
         if (callback) {
             callback(result);
@@ -172,7 +172,7 @@ function _isValidMessage(content) {
 // Send message to the smart contract
 function sendMessage(content) {
     if (wallet != null && _isValidMessage(content)) {        
-        aionContract.executeFunction("sendMessage", wallet, [content.name, content.message], null, 150000, 20000000000, 0, function (error, result) {
+        ethContract.executeFunction("sendMessage", wallet, [content.name, content.message], null, 200000, 10000000000, 0, function (error, result) {
             if (error != null) {
                 io.emit('status-update', {message: "Failed to send message with error: "+error})
                 return
@@ -181,10 +181,10 @@ function sendMessage(content) {
             io.emit('status-update', { message: "Message sent, txHash: "+result })
             // Loop for the receipt status of the transaction
             setTimeout(function () {
-                pocketAion.mastery.eth.getTransactionReceipt(result, function (error, result) {
+                pocketEth.rinkeby.eth.getTransactionReceipt(result, function (error, result) {
                     if (error != null) {
                         console.log("Receipt status = " + result.status)
-                        if (result.status == 1) {
+                        if (BigInt(result.status).toString(16) == "1") {
                             io.emit('chatter-update')
                         }
                     } else {
