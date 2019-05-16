@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket-ChatTests/Pocket_ChatTests.swift"
+            timestampString = "579734091.420791"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket-Chat/View Controllers/MessageViewController.swift"
+            timestampString = "579734091.421284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "refreshScreen(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pocket_Chat.MessageViewController.refreshScreen(Swift.Optional&lt;__C.UIButton&gt;) -&gt; ()"
+                  moduleName = "Pocket-Chat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeremybeal/Desktop/iOS-Eth/Pocket-Chat/View%20Controllers/MessageViewController.swift"
+                  timestampString = "579732160.929458"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "1005">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;PocketSwift.PocketError&gt;, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in Pocket_Chat.MessageViewController.refreshScreen(Swift.Optional&lt;__C.UIButton&gt;) -&gt; ()"
+                  moduleName = "Pocket-Chat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeremybeal/Desktop/iOS-Eth/Pocket-Chat/View%20Controllers/MessageViewController.swift"
+                  timestampString = "579732160.933035"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "324">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket-Chat/View Controllers/MessageViewController.swift"
+            timestampString = "579734091.421357"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "refreshScreen(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;PocketSwift.PocketError&gt;, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in Pocket_Chat.MessageViewController.refreshScreen(Swift.Optional&lt;__C.UIButton&gt;) -&gt; ()"
+                  moduleName = "Pocket-Chat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeremybeal/Desktop/iOS-Eth/Pocket-Chat/View%20Controllers/MessageViewController.swift"
+                  timestampString = "579231006.0993789"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "2478">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;PocketSwift.PocketError&gt;, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in closure #1 (Swift.Optional&lt;PocketSwift.PocketError&gt;, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in Pocket_Chat.MessageViewController.refreshScreen(Swift.Optional&lt;__C.UIButton&gt;) -&gt; ()"
+                  moduleName = "Pocket-Chat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeremybeal/Desktop/iOS-Eth/Pocket-Chat/View%20Controllers/MessageViewController.swift"
+                  timestampString = "579231006.1033241"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "227">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pocket-Chat/View Controllers/MessageViewController.swift"
+            timestampString = "579734091.421423"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "refreshScreen(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

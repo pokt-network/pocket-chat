@@ -6,9 +6,10 @@ target 'Pocket-Chat' do
   use_frameworks!
 
   # Pods for Pocket-Chat
-  pod 'MessageKit', :git => 'https://github.com/MessageKit/MessageKit.git', :tag => '3.0.0-beta-swift5'
+  pod 'MessageKit', :git => 'https://github.com/MessageKit/MessageKit.git', :tag => '3.0.0'
   pod 'MessageInputBar'
-  pod 'PocketSwift/Aion'
+  pod 'PocketSwift'
+ 
 
   target 'Pocket-ChatTests' do
     inherit! :search_paths

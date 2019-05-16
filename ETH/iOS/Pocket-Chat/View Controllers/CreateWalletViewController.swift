@@ -11,29 +11,45 @@ import PocketSwift
 
 
 class CreateWalletViewController: UIViewController {
-    var pocketAion: PocketAion?
-    var wallet: Wallet?
+    
+    // declate wallet and PocketAion
+    var wallet:Wallet?
+    var pocketEth:PocketEth?
+    
+    
     
     @IBOutlet weak var publicKeyLabel: UILabel!
     @IBOutlet weak var privateKetyTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        do {
-            // Instantiate PocketAion
-            pocketAion = try PocketAion.init(devID: "", netIds: ["32","256"], defaultNetID: "32", maxNodes: 5, requestTimeOut: 20000)
-        } catch {
+        
+        do{
+            pocketEth = try PocketEth.init(devID: DeveloperConfig.devID, netIds: [PocketEth.Networks.Rinkeby.netID,PocketEth.Networks.Mainnet.netID])
+            
+            
+        } catch{
             print(error)
         }
+     
+        
     }
     
     @IBAction func createWallet(_ sender: Any) {
+        
+        //ensure the labels are empty
         if publicKeyLabel.text?.isEmpty ?? true || privateKetyTextView.text?.isEmpty ?? true {
+            
+            //generate the public and private keys
             do {
-                // Create Wallet
-                self.wallet = try pocketAion?.mastery?.createWallet()
+                // TODO: call Create Wallet class
+                 wallet = try pocketEth?.rinkeby?.createWallet()
+
+                //TODO: display wallet address and private key
                 self.publicKeyLabel.text = wallet?.address
+                
                 self.privateKetyTextView.text = wallet?.privateKey
+                
             } catch {
                 let alertController = UIAlertController(title: "Error", message: "Failed to create a wallet, please try again later.", preferredStyle: .alert)
                 self.present(alertController, animated: true, completion: nil)

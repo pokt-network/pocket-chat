@@ -10,9 +10,12 @@ import Foundation
 import UIKit
 import PocketSwift
 
+
 class ImportWalletViewController: UIViewController {
-    var wallet: Wallet?
-    var pocketAion: PocketAion?
+    
+    // declare Wallet and PocketEth
+    var wallet:Wallet?
+    var pocketEth:PocketEth?
     
     @IBOutlet weak var privateKeyTextView: UITextView!
     
@@ -20,15 +23,17 @@ class ImportWalletViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // Store the imported wallet and request passphrase
     func saveWallet() {
         let alertController = self.requestPassphrase { (passphrase, error) in
             if passphrase != nil {
                 do {
+                    // encrypt message 
                     let isSaved = try self.wallet?.save(passphrase: passphrase!)
                     if isSaved ?? false {
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let vc = storyboard.instantiateViewController(withIdentifier: "messageViewControllerID") as? MessageViewController
-                        vc?.pocketAion = self.pocketAion
+                        vc?.pocketEth = self.pocketEth
                         vc?.wallet = self.wallet
                         self.present(vc!, animated: true, completion: nil)
                     }
@@ -48,9 +53,15 @@ class ImportWalletViewController: UIViewController {
     }
     
     @IBAction func importButton(_ sender: Any) {
+        
+    
         if !privateKeyTextView.text.isEmpty {
             do {
-                self.wallet = try pocketAion?.mastery?.importWallet(privateKey: privateKeyTextView.text)
+                
+                // Store the private key text from the VC
+                self.wallet = try pocketEth?.rinkeby?.importWallet(privateKey: privateKeyTextView.text)
+                
+                
                 if self.wallet != nil {
                     let saveAlertController = UIAlertController(title: "Account", message: "Wallet import was a sucess, do you want to SAVE the account?", preferredStyle: .alert)
                     
@@ -60,7 +71,7 @@ class ImportWalletViewController: UIViewController {
                     let saveAction2 = UIAlertAction(title: "No", style: .destructive) { (UIAlertAction) in
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let vc = storyboard.instantiateViewController(withIdentifier: "messageViewControllerID") as? MessageViewController
-                        vc?.pocketAion = self.pocketAion
+                        vc?.pocketEth = self.pocketEth
                         vc?.wallet = self.wallet
                         self.present(vc!, animated: true, completion: nil)
                     }
@@ -68,6 +79,8 @@ class ImportWalletViewController: UIViewController {
                     saveAlertController.addAction(saveAction2)
                     
                     self.present(saveAlertController, animated: false, completion: nil)
+                    
+             
                 }else {
                     let alertController = UIAlertController(title: "Error", message: "Failed to import wallet, please verify the private key", preferredStyle: .alert)
                     let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
