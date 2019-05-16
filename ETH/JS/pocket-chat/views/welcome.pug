@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title Pocket Chat
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css')
+    link(rel='stylesheet', href='css/main.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='scripts/main.js')
+  body
+    #chat-app
+      #chat.has-text-centered
+        section.section.zero-padding-top
+          div.container.container-medium.default-background.background
+            a(href="/import" style="display:block;margin-left: auto;margin-right: auto;")
+              img(src="/images/logo.png" alt="Pocket Network" style="width:380px;height:380px;border:0;")
+            a(href="/import" style="font-size: xx-large;color:white;display:block;margin-left: auto;margin-right: auto;margin-top:200px;")
+              | Let's get started!
+        footer
+          .container
+            .content
+              p
+                | Powered by
+                a(href='https://pokt.network')  Pocket
+
+                
