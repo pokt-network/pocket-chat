@@ -19,6 +19,7 @@
 		3E3AB2212268F611004C4AD8 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AB2202268F611004C4AD8 /* ImportWalletViewController.swift */; };
 		3E3AB2232268F797004C4AD8 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AB2222268F797004C4AD8 /* MessageViewController.swift */; };
 		3E3AB2252268F815004C4AD8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AB2242268F815004C4AD8 /* Message.swift */; };
+		3EDA52772284734A007BF6A0 /* DeveloperConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA52762284734A007BF6A0 /* DeveloperConfig.swift */; };
 		757D9DABA056C8A032718354 /* Pods_Pocket_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B09F4C1555DEB2E74A6E140 /* Pods_Pocket_Chat.framework */; };
 		C5508D152270BA690054A966 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5508D142270BA690054A966 /* ViewController+Extension.swift */; };
 		C5508D182270DCFE0054A966 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5508D172270DCFE0054A966 /* AppConfig.swift */; };
@@ -55,6 +56,7 @@
 		3E3AB2202268F611004C4AD8 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		3E3AB2222268F797004C4AD8 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		3E3AB2242268F815004C4AD8 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		3EDA52762284734A007BF6A0 /* DeveloperConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperConfig.swift; sourceTree = "<group>"; };
 		51C232BCA50FEF59F30BFDED /* Pods-Pocket-Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket-Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket-Chat/Pods-Pocket-Chat.release.xcconfig"; sourceTree = "<group>"; };
 		B0A932BB4885EA9201F44529 /* Pods-Pocket-Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket-Chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket-Chat/Pods-Pocket-Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		C5508D142270BA690054A966 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				C5508D172270DCFE0054A966 /* AppConfig.swift */,
+				3EDA52762284734A007BF6A0 /* DeveloperConfig.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -158,9 +161,9 @@
 			isa = PBXGroup;
 			children = (
 				3E3AB1FD2268EE94004C4AD8 /* WelcomeViewController.swift */,
-				3E3AB2222268F797004C4AD8 /* MessageViewController.swift */,
 				3E3AB2202268F611004C4AD8 /* ImportWalletViewController.swift */,
 				3E3AB21E2268F4A3004C4AD8 /* CreateWalletViewController.swift */,
+				3E3AB2222268F797004C4AD8 /* MessageViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				TargetAttributes = {
 					3E3AB1F72268EE94004C4AD8 = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 					};
 					3E3AB20E2268EE96004C4AD8 = {
 						CreatedOnToolsVersion = 10.2;
@@ -370,6 +374,7 @@
 			files = (
 				3E3AB1FE2268EE94004C4AD8 /* WelcomeViewController.swift in Sources */,
 				C5508D182270DCFE0054A966 /* AppConfig.swift in Sources */,
+				3EDA52772284734A007BF6A0 /* DeveloperConfig.swift in Sources */,
 				3E3AB2212268F611004C4AD8 /* ImportWalletViewController.swift in Sources */,
 				3E3AB21F2268F4A3004C4AD8 /* CreateWalletViewController.swift in Sources */,
 				3E3AB1FC2268EE94004C4AD8 /* AppDelegate.swift in Sources */,
@@ -549,7 +554,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Pkt-Sample.Pocket-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -568,7 +573,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Pkt-Sample.Pocket-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -9,22 +9,32 @@
 import UIKit
 import PocketSwift
 
+
+
+
 class WelcomeViewController: UIViewController {
+   
+    //call wallet and pocketaion variable
     var wallet: Wallet?
-    var pocketAion: PocketAion?
+    var pocketEth: PocketEth?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        do {
-            // Instantiate PocketAion
-            pocketAion = try PocketAion.init(devID: "", netIds: ["32","256"], defaultNetID: "32", maxNodes: 5, requestTimeOut: 20000)
-        } catch {
+        
+        //create PocketAion instance.
+        do{
+            pocketEth = try PocketEth.init(devID: DeveloperConfig.devID, netIds: [PocketEth.Networks.Rinkeby.netID,PocketEth.Networks.Mainnet.netID])
+            
+        } catch{
             print(error)
         }
+        
     }
     
     @IBAction func getStarted(_ sender: Any) {
-        // Try to get account from keystore
-        let keys = Wallet.getWalletsRecordKeys()
+        
+        //get account from recordKey
+       let keys = Wallet.getWalletsRecordKeys()
         
         if keys.count > 0 {
             let address = keys.last?.split(separator: "/").last
@@ -32,12 +42,13 @@ class WelcomeViewController: UIViewController {
             let alertController = self.requestPassphrase { (passphrase, error) in
                 if passphrase != nil {
                     do {
-                        // Retrieve wallet
-                        self.wallet = try Wallet.retrieveWallet(network: "AION", netID: "32", address: String(address!), passphrase: passphrase!)
+                        //Retrieve wallet
+                        self.wallet = try Wallet.retrieveWallet(network: PocketEth.NETWORK, netID: (self.pocketEth?.rinkeby!.netID)!, address: String(address!), passphrase: String(passphrase!))
+                        
                         // Instantiate MessageViewController
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let vc = storyboard.instantiateViewController(withIdentifier: "messageViewControllerID") as? MessageViewController
-                        vc?.pocketAion = self.pocketAion
+                        vc?.pocketEth = self.pocketEth
                         vc?.wallet = self.wallet
                         self.present(vc!, animated: true, completion: nil)
                     } catch {
@@ -54,7 +65,7 @@ class WelcomeViewController: UIViewController {
                 }else {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "importWalletViewControllerID") as? ImportWalletViewController
-                    vc?.pocketAion = self.pocketAion
+                    vc?.pocketEth = self.pocketEth
                     self.present(vc!, animated: true, completion: nil)
                 }
             }
@@ -62,7 +73,7 @@ class WelcomeViewController: UIViewController {
         }else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "importWalletViewControllerID") as? ImportWalletViewController
-            vc?.pocketAion = self.pocketAion
+            vc?.pocketEth = self.pocketEth
             self.present(vc!, animated: true, completion: nil)
         }
     }

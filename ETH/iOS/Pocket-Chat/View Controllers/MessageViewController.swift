@@ -8,18 +8,16 @@
 
 import UIKit
 import MessageKit
-//import MessageInputBar
 import InputBarAccessoryView
 import PocketSwift
 import BigInt
 
 class MessageViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
-    var pocketAion: PocketAion?
-    var aionContract: AionContract?
+    
+    var pocketEth: PocketEth?
+    var ethContract:EthContract?
+    var wallet:Wallet?
     var messageList = [Message]()
-    let smartContractAddress = AppConfig.smartContractAddress
-    var abiDefinition = AppConfig.abiDefinition
-    var wallet: Wallet?
     var currentUser: User?
     let refreshControl = UIRefreshControl()
     let formatter: DateFormatter = {
@@ -38,7 +36,8 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
         // MessageKit setup
         configureMessageCollectionView()
         configureMessageInputBar()
-
+        
+        
         // Create refresh button
         let refreshImage = UIImage(named: "refresh")
         let refreshItem = InputBarButtonItem(type: .system)
@@ -64,23 +63,28 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        activityIndicator.startAnimating()
+        //activityIndicator.startAnimating()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // Load the first messages
         loadFirstMessages()
+        
+        
     }
     
     // Retrieve messages
     @objc func refreshScreen (_ sender:UIButton?){
         self.messageList.removeAll()
+
+        
         do {
-            // Create an aionContract Instance
-            aionContract = try? AionContract.init(aionNetwork: pocketAion!.mastery!, address: smartContractAddress, abiDefinition: abiDefinition)
+            //Create an aionContract Instance
+            let ethContract = try? EthContract.init(ethNetwork: pocketEth!.rinkeby!, address: AppConfig.smartContractAddress, abiDefinition: AppConfig.abiDefinition)
             
-            try aionContract?.executeConstantFunction(functionName: "getTotalMessageCount", functionParams: [], fromAddress: nil, gas: BigUInt(50000), gasPrice: BigUInt(20000000000), value: nil, blockTag: nil, callback: { (error, count) in
+            //exececuteConstantFunciton
+            try ethContract?.executeConstantFunction(functionName: "getTotalMessageCount", fromAddress: nil, gas: BigUInt(100000), gasPrice: BigUInt(10000000000), value: nil, blockTag: nil, callback: { (error, count) in
                 
                 if error != nil {
                     print("Failed to retrieve total message count with error: \(error!)")
@@ -88,12 +92,17 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
                 }
                 // Parse response
                 var msgCount = Int("\(count?.first ?? "0")") ?? 0
-                
+              
                 do {
                     while msgCount > 0 {
                         msgCount = msgCount - 1
-                        try self.aionContract?.executeConstantFunction(functionName: "getMessageByIndex", functionParams: [msgCount], fromAddress: nil, gas: BigUInt(50000), gasPrice: BigUInt(20000000000), value: nil, blockTag: BlockTag.latest, callback: { (error, result) in
-                            
+                        
+                        var indexNum:[AnyObject] = []
+                        indexNum.append(1 as AnyObject)
+
+                        // executeConstantFunction can call getMessageByIndex
+                        try self.ethContract?.executeConstantFunction(functionName: "getMessageByIndex", functionParams: indexNum, fromAddress: nil, gas: BigUInt(100000), gasPrice: BigUInt(10000000000), value: nil, blockTag: EthBlockTag.latest, callback: { (error, result) in
+                           
                             if error != nil {
                                 print("Failed to retrieve total message with error: \(error!)")
                                 return
@@ -134,7 +143,7 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
     
     func configureMessageCollectionView() {
         messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messageCellDelegate = self
+        //messagesCollectionView.messageCellDelegate = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         scrollsToBottomOnKeyboardBeginsEditing = true // default false
@@ -158,7 +167,7 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
     
     func insertMessage(_ message: Message) {
         messageList.append(message)
-        // Reload last section to update header/footer labels and insert a new one
+        // uad last section to update header/footer labels and insert a new one
         messagesCollectionView.performBatchUpdates({
             messagesCollectionView.insertSections([messageList.count - 1])
             if messageList.count >= 2 {
@@ -210,122 +219,62 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
         let name = message.sender.displayName
         return NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption1)])
     }
-    
-    func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        
-        let dateString = formatter.string(from: message.sentDate)
-        return NSAttributedString(string: dateString, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption2)])
-    }
+
     
 }
 
-// MARK: - MessageLabelDelegate
-extension MessageViewController: MessageLabelDelegate {
-    
-    func didSelectAddress(_ addressComponents: [String: String]) {
-        print("Address Selected: \(addressComponents)")
-    }
-    
-    func didSelectDate(_ date: Date) {
-        print("Date Selected: \(date)")
-    }
-    
-    func didSelectPhoneNumber(_ phoneNumber: String) {
-        print("Phone Number Selected: \(phoneNumber)")
-    }
-    
-    func didSelectURL(_ url: URL) {
-        print("URL Selected: \(url)")
-    }
-    
-    func didSelectTransitInformation(_ transitInformation: [String: String]) {
-        print("TransitInformation Selected: \(transitInformation)")
-    }
-    
-    func didSelectHashtag(_ hashtag: String) {
-        print("Hashtag selected: \(hashtag)")
-    }
-    
-    func didSelectMention(_ mention: String) {
-        print("Mention selected: \(mention)")
-    }
-    
-    func didSelectCustom(_ pattern: String, match: String?) {
-        print("Custom data detector patter selected: \(pattern)")
-    }
-    
-}
 
-// MARK: - MessageCellDelegate
-extension MessageViewController: MessageCellDelegate {
-    
-    func didTapAvatar(in cell: MessageCollectionViewCell) {
-        print("Avatar tapped")
-    }
-    
-    func didTapMessage(in cell: MessageCollectionViewCell) {
-        print("Message tapped")
-    }
-    
-    func didTapCellTopLabel(in cell: MessageCollectionViewCell) {
-        print("Top cell label tapped")
-    }
-    
-    func didTapCellBottomLabel(in cell: MessageCollectionViewCell) {
-        print("Bottom cell label tapped")
-    }
-    
-    func didTapMessageTopLabel(in cell: MessageCollectionViewCell) {
-        print("Top message label tapped")
-    }
-    
-    func didTapMessageBottomLabel(in cell: MessageCollectionViewCell) {
-        print("Bottom label tapped")
-    }
-    
-    func didStartAudio(in cell: AudioMessageCell) {
-        print("Did start playing audio sound")
-    }
-    
-    func didPauseAudio(in cell: AudioMessageCell) {
-        print("Did pause audio sound")
-    }
-    
-    func didStopAudio(in cell: AudioMessageCell) {
-        print("Did stop audio sound")
-    }
-    
-    func didTapAccessoryView(in cell: MessageCollectionViewCell) {
-        print("Accessory view tapped")
-    }
-}
 // MARK: - MessageInputBarDelegate
 extension MessageViewController: InputBarAccessoryViewDelegate {
     
+    override var canBecomeFirstResponder: Bool {
+        get {
+            return true
+        }
+    }
+    
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        
+       var pocketEth2: PocketEth?
+        // Message
+        let message = Message.init(messageId: UUID().uuidString, user: self.currentUser!, textMessage: text)
+        let address = self.wallet?.address
+        // Clear input text and insert message
+        inputBar.inputTextView.text = String()
+        self.insertMessage(message)
+        self.messagesCollectionView.scrollToBottom(animated: true)
         
         let alertController = UIAlertController(title: "Wait", message: "Do you want to send the message?", preferredStyle: .alert)
         let action = UIAlertAction(title: "Yes", style: .default) { (UIAlertAction) in
             do {
-                // Message
-                let message = Message.init(messageId: UUID().uuidString, user: self.currentUser!, textMessage: text)
-                let address = self.wallet?.address
-                // Clear input text and insert message
-                inputBar.inputTextView.text = String()
-                self.insertMessage(message)
-                self.messagesCollectionView.scrollToBottom(animated: true)
+       
+                 pocketEth2 = try PocketEth.init(devID: DeveloperConfig.devID, netIds: [PocketEth.Networks.Rinkeby.netID,PocketEth.Networks.Mainnet.netID])
+   
                 // Params
-                var params = [Any]()
-                params.append(address ?? "")
-                params.append(message.textMessage)
+
                 
-                try self.aionContract?.executeFunction(functionName: "sendMessage", wallet: self.wallet!, functionParams: params, nonce: nil, gas: BigUInt(150000), gasPrice: BigUInt(20000000000), value: nil, callback: { (error, result) in
+                let address = self.wallet?.address
+                
+                let testing = "test2"
+                
+                var params: [AnyObject] = []
+                params.append(address as AnyObject)
+                params.append(String(text) as AnyObject)
+                
+                print(params)
+                
+                //print("the test params are: ", params)
+                
+                let ethContract2 = try EthContract.init(ethNetwork: pocketEth2!.rinkeby!, address: AppConfig.smartContractAddress, abiDefinition: AppConfig.abiDefinition)
+                
+                //executeFunction class
+                try ethContract2.executeFunction(functionName: "sendMessage", wallet: self.wallet!, functionParams: params, nonce: nil, gas: BigUInt(200000), gasPrice: BigUInt(10000000000), value: nil, callback: { (error, result) in
                     if error != nil {
                         print("Failed to send message with error: \(error!)")
                         return
                     }
-                    
                     print("\(result ?? "none")")
+                    print(result)
                 })
             } catch {
                 print(error)
