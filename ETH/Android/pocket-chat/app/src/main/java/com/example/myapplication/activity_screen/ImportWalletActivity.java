@@ -19,12 +19,13 @@ import java.util.List;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
-import network.pocket.aion.PocketAion;
+import network.pocket.eth.*;
 import network.pocket.core.errors.WalletPersistenceError;
 import network.pocket.core.model.Wallet;
+import network.pocket.eth.PocketEth;
 
 public class ImportWalletActivity extends AppCompatActivity {
-    PocketAion pocketAion;
+    PocketEth pocketEth;
     Wallet wallet;
     Context appContext;
 
@@ -53,15 +54,15 @@ public class ImportWalletActivity extends AppCompatActivity {
         this.appContext = ImportWalletActivity.this;
         // Instantiate PocketAion
         List<String> netIds = new ArrayList<>();
-        netIds.add(PocketAion.Networks.MASTERY.getNetID());
-        this.pocketAion = new PocketAion(this.appContext,"", netIds,5,50000,"32");
+        netIds.add(PocketEth.Networks.RINKEBY.getNetID());
+        this.pocketEth = new PocketEth(this.appContext,"", netIds,5,50000,"4");
     }
     protected void importWallet() {
         TextView private_key_text = (TextView)findViewById(R.id.private_key_text);
         String privateKey = private_key_text.getText().toString();
 
         if (privateKey.trim().length() > 0) {
-            this.wallet = this.pocketAion.getMastery().importWallet(privateKey);
+            this.wallet = this.pocketEth.getRinkeby().importWallet(privateKey);
 
             if (wallet != null) {
                 showPassphraseDialog(this.wallet);
@@ -100,10 +101,12 @@ public class ImportWalletActivity extends AppCompatActivity {
                             wallet.save(passphrase, ImportWalletActivity.this, new Function1<WalletPersistenceError, Unit>() {
                                 @Override
                                 public Unit invoke(WalletPersistenceError walletPersistenceError) {
-                                    ImportWalletActivity.this.loadMessagesActivity();
+
                                     return null;
                                 }
+
                             });
+                            ImportWalletActivity.this.loadMessagesActivity();
                         }else{
                             ImportWalletActivity.this.showPassphraseDialog(wallet);
                         }

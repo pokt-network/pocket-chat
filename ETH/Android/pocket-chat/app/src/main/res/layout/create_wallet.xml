@@ -38,7 +38,7 @@
         tools:text="Public Address" />
 
     <Button
-        android:id="@+id/import_wallet_btn"
+        android:id="@+id/generate_wallet_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"

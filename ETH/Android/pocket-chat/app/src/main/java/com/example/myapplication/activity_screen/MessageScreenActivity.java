@@ -24,9 +24,9 @@ import java.util.List;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
-import network.pocket.aion.AionContract;
-import network.pocket.aion.PocketAion;
-import network.pocket.aion.exceptions.AionContractException;
+import network.pocket.eth.EthContract;
+import network.pocket.eth.*;
+import network.pocket.eth.exceptions.EthContractException;
 import network.pocket.core.errors.PocketError;
 import network.pocket.core.model.Wallet;
 
@@ -36,9 +36,9 @@ public class MessageScreenActivity extends AppCompatActivity {
     private MessageState messageState;
     private ListView messagesView;
     private SmartContract smartContract;
-    public PocketAion pocketAion;
+    public PocketEth pocketEth;
 
-    AionContract aionContract;
+    EthContract ethContract;
     Wallet wallet;
     Context appContext;
     TreeMap<Integer, Message> messages = new TreeMap<Integer, Message>();
@@ -60,8 +60,8 @@ public class MessageScreenActivity extends AppCompatActivity {
 
         // Instantiate PocketAion
         List<String> netIds = new ArrayList<>();
-        netIds.add(PocketAion.Networks.MASTERY.getNetID());
-        this.pocketAion = new PocketAion(this.appContext, "", netIds, 5, 50000, "32");
+        netIds.add(PocketEth.Networks.RINKEBY.getNetID());
+        this.pocketEth = new PocketEth(this.appContext, "", netIds, 5, 50000, "4");
 
         // Set up the wallet
         Bundle extras = getIntent().getExtras();
@@ -69,12 +69,12 @@ public class MessageScreenActivity extends AppCompatActivity {
             String address = extras.getString("address");
             String privateKey = extras.getString("privateKey");
 
-            this.wallet = new Wallet(privateKey, address, this.pocketAion.getMastery().getNet().toString(), this.pocketAion.getMastery().getNetID().toString());
+            this.wallet = new Wallet(privateKey, address, this.pocketEth.getRinkeby().getNet().toString(), this.pocketEth.getRinkeby().getNetID().toString());
         }
 
         // SmartContract setup
-        this.smartContract = new SmartContract(this.appContext, this.wallet, this.pocketAion);
-        this.aionContract = smartContract.aionContract;
+        this.smartContract = new SmartContract(this.appContext, this.wallet, this.pocketEth);
+        this.ethContract = smartContract.ethContract;
 
         // Retrieve messages
         retrieveMessages();
@@ -134,7 +134,7 @@ public class MessageScreenActivity extends AppCompatActivity {
     public void retrieveMessages() {
         // Retrieve messages count
         try {
-            this.aionContract.executeConstantFunction("getTotalMessageCount", null, null, new BigInteger("50000"), new BigInteger("20000000000"), null, new Function2<PocketError, Object[], Unit>() {
+            this.ethContract.executeConstantFunction("getTotalMessageCount", null, null, new BigInteger("50000"), new BigInteger("20000000000"), null, new Function2<PocketError, Object[], Unit>() {
                 @Override
                 public Unit invoke(PocketError pocketError, Object[] result) {
                     if (pocketError != null) {
@@ -154,7 +154,7 @@ public class MessageScreenActivity extends AppCompatActivity {
                     return null;
                 }
             });
-        } catch (AionContractException e) {
+        } catch (EthContractException e) {
             e.printStackTrace();
         }
     }
@@ -164,7 +164,7 @@ public class MessageScreenActivity extends AppCompatActivity {
         ArrayList<Object> functionParams = new ArrayList<>();
         functionParams.add(new BigInteger(index.toString()));
         try {
-            MessageScreenActivity.this.aionContract.executeConstantFunction("getMessageByIndex", functionParams, null, new BigInteger("50000"), new BigInteger("20000000000"), null, new Function2<PocketError, Object[], Unit>() {
+            MessageScreenActivity.this.ethContract.executeConstantFunction("getMessageByIndex", functionParams, null, new BigInteger("50000"), new BigInteger("20000000000"), null, new Function2<PocketError, Object[], Unit>() {
                 @Override
                 public Unit invoke(PocketError pocketError, Object[] result) {
                     if (pocketError != null) {
@@ -181,7 +181,7 @@ public class MessageScreenActivity extends AppCompatActivity {
                     return null;
                 }
             });
-        } catch (AionContractException e) {
+        } catch (EthContractException e) {
             e.printStackTrace();
         }
     }

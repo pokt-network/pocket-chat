@@ -56,7 +56,7 @@ public class CreateWalletActivity extends Activity {
         // Instantiate PocketAion
         List<String> netIds = new ArrayList<>();
         netIds.add(PocketAion.Networks.MASTERY.getNetID());
-        this.pocketAion = new PocketAion(this.appContext,"", netIds,5,50000,"32");
+        this.pocketAion = new PocketAion(this.appContext,"DEVx0rUzoU9jykzEyjuafsr", netIds,5,50000,"32");
     }
 
     protected void createWallet() {
