@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -18,15 +19,17 @@ import java.util.List;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
-import network.pocket.aion.*;
+import network.pocket.eth.*;
 import network.pocket.core.errors.WalletPersistenceError;
 import network.pocket.core.model.Wallet;
 
 public class CreateWalletActivity extends Activity {
 
-    PocketAion pocketAion;
+    PocketEth pocketEth;
     Context appContext;
     Wallet wallet;
+    TextView publicView;
+    TextView privateView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +37,12 @@ public class CreateWalletActivity extends Activity {
         setContentView(R.layout.create_wallet);
 
         // Create wallet and continue button
-        Button create_W = (Button)findViewById(R.id.import_wallet_btn);
+        Button create_W = (Button)findViewById(R.id.generate_wallet_btn);
         Button continue_Btn = (Button)findViewById(R.id.continue_btn);
+
+        // display addresses:
+        publicView = (TextView)findViewById(R.id.public_key_text);
+        privateView = (TextView)findViewById(R.id.private_key_text);
 
         // Creates a wallet
         create_W.setOnClickListener(new View.OnClickListener() {
@@ -53,14 +60,18 @@ public class CreateWalletActivity extends Activity {
         } );
         // Set app context
         this.appContext = CreateWalletActivity.this;
-        // Instantiate PocketAion
+        // Instantiate PocketEth
         List<String> netIds = new ArrayList<>();
-        netIds.add(PocketAion.Networks.MASTERY.getNetID());
-        this.pocketAion = new PocketAion(this.appContext,"", netIds,5,50000,"32");
+        netIds.add(PocketEth.Networks.RINKEBY.getNetID());
+        this.pocketEth = new PocketEth(this.appContext,"", netIds,5,50000,"4");
     }
-
     protected void createWallet() {
-        wallet = this.pocketAion.getMastery().createWallet();
+        wallet = this.pocketEth.getRinkeby().createWallet();
+
+        publicView.setText(wallet.getAddress());
+        privateView.setText(wallet.getPrivateKey());
+
+        Log.d("testing", wallet.getAddress());
 
         showPassphraseDialog(wallet);
     }

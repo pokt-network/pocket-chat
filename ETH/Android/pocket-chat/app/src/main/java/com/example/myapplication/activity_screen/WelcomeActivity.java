@@ -13,7 +13,6 @@ import java.util.List;
 import network.pocket.core.errors.WalletPersistenceError;
 import kotlin.*;
 import kotlin.jvm.functions.Function2;
-//
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -69,7 +68,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     protected synchronized void getWallet(String address,String passphrase) {
-        Wallet.Companion.retrieve("AION", "32", address, passphrase, appContext, new Function2<WalletPersistenceError, Wallet, Unit>() {
+        Wallet.Companion.retrieve("ETH", "4", address, passphrase, appContext, new Function2<WalletPersistenceError, Wallet, Unit>() {
             @Override
             public Unit invoke(WalletPersistenceError walletPersistenceError, Wallet retrievedWallet) {
                 if (retrievedWallet != null) {
