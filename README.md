@@ -16,4 +16,4 @@ The Pocket Core team is now focused on delivering the Testnet release so non-tri
 To learn how we were able to connect to the Aion and Ethereum network using the Pocket SDKs inside Pocket-Chat, [click here](https://docs.pokt.network/docs/choose-your-network) to visit our developer portal. 
 
 ## Contact Us
-If you have any questions, feel free to reach out to Pocket’s support team on Discord.  
+If you have any questions, feel free to reach out to Pocket’s support team on [Discord](https://discord.gg/sarhfXP).  
