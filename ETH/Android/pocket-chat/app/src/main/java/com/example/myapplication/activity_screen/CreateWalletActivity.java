@@ -71,8 +71,6 @@ public class CreateWalletActivity extends Activity {
         publicView.setText(wallet.getAddress());
         privateView.setText(wallet.getPrivateKey());
 
-        Log.d("testing", wallet.getAddress());
-
         showPassphraseDialog(wallet);
     }
 
