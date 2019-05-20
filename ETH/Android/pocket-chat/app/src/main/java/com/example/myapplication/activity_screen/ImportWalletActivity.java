@@ -101,12 +101,12 @@ public class ImportWalletActivity extends AppCompatActivity {
                             wallet.save(passphrase, ImportWalletActivity.this, new Function1<WalletPersistenceError, Unit>() {
                                 @Override
                                 public Unit invoke(WalletPersistenceError walletPersistenceError) {
-
+                                    ImportWalletActivity.this.loadMessagesActivity();
                                     return null;
                                 }
 
                             });
-                            ImportWalletActivity.this.loadMessagesActivity();
+
                         }else{
                             ImportWalletActivity.this.showPassphraseDialog(wallet);
                         }

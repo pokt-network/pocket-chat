@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: network.pocket.android:eth:0.0.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/91951c85cea6321c629d35eea9b528f9/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/91951c85cea6321c629d35eea9b528f9/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/network.pocket.android/eth/0.0.2/407dc83ca293d8bf8e245e99bacf036fe89222c9/eth-0.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
