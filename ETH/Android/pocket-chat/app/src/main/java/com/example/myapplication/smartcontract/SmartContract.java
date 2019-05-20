@@ -14,23 +14,25 @@ import java.util.List;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
-import network.pocket.aion.*;
-import network.pocket.aion.exceptions.AionContractException;
+import network.pocket.eth.*;
+import network.pocket.eth.exceptions.EthContractException;
 import network.pocket.core.errors.PocketError;
 import network.pocket.core.model.Wallet;
+import network.pocket.eth.EthContract;
+import network.pocket.eth.PocketEth;
 
 import com.example.myapplication.utils.AppConfig;
 
 public class SmartContract {
 
-    PocketAion pocketAion;
+    PocketEth pocketEth;
     Context appContext;
     Wallet wallet;
-    public AionContract aionContract;
+    public EthContract ethContract;
     ArrayList<Message> messages;
 
-    public SmartContract(Context context, Wallet wallet, PocketAion pocketAion){
-        this.pocketAion = pocketAion;
+    public SmartContract(Context context, Wallet wallet, PocketEth pocketEth){
+        this.pocketEth = pocketEth;
         this.appContext = context;
         this.wallet = wallet;
         // Setup AionContract
@@ -39,7 +41,7 @@ public class SmartContract {
 
         try {
             JSONArray contractABIArray = new JSONArray(contractABI);
-            this.aionContract = new AionContract(pocketAion.getMastery(),contractAddress,contractABIArray);
+            this.ethContract = new EthContract(pocketEth.getRinkeby(),contractAddress,contractABIArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -56,7 +58,7 @@ public class SmartContract {
 
         //execute contract function
         try {
-            this.aionContract.executeFunction("sendMessage", wallet, functionParams, null, new BigInteger("300000"), new BigInteger("20000000000"), new BigInteger("0"), new Function2<PocketError, String, Unit>() {
+            this.ethContract.executeFunction("sendMessage", wallet, functionParams, null, new BigInteger("300000"), new BigInteger("20000000000"), new BigInteger("0"), new Function2<PocketError, String, Unit>() {
                 @Override
                 public Unit invoke(PocketError pocketError, String result) {
                     if (pocketError != null) {
@@ -67,7 +69,7 @@ public class SmartContract {
                     return null;
                 }
             });
-        } catch (AionContractException e) {
+        } catch (EthContractException e) {
             e.printStackTrace();
         }
 
