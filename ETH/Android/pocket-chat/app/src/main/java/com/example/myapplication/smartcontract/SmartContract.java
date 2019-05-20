@@ -58,7 +58,7 @@ public class SmartContract {
 
         //execute contract function
         try {
-            this.ethContract.executeFunction("sendMessage", wallet, functionParams, null, new BigInteger("300000"), new BigInteger("20000000000"), new BigInteger("0"), new Function2<PocketError, String, Unit>() {
+            this.ethContract.executeFunction("sendMessage", wallet, functionParams, null, new BigInteger("200000"), new BigInteger("10000000000"), new BigInteger("0"), new Function2<PocketError, String, Unit>() {
                 @Override
                 public Unit invoke(PocketError pocketError, String result) {
                     if (pocketError != null) {

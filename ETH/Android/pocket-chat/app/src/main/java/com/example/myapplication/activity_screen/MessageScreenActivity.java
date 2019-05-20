@@ -134,7 +134,7 @@ public class MessageScreenActivity extends AppCompatActivity {
     public void retrieveMessages() {
         // Retrieve messages count
         try {
-            this.ethContract.executeConstantFunction("getTotalMessageCount", null, null, new BigInteger("50000"), new BigInteger("20000000000"), null, new Function2<PocketError, Object[], Unit>() {
+            this.ethContract.executeConstantFunction("getTotalMessageCount", null, null, new BigInteger("100000"), new BigInteger("10000000000"), null, new Function2<PocketError, Object[], Unit>() {
                 @Override
                 public Unit invoke(PocketError pocketError, Object[] result) {
                     if (pocketError != null) {
@@ -164,7 +164,7 @@ public class MessageScreenActivity extends AppCompatActivity {
         ArrayList<Object> functionParams = new ArrayList<>();
         functionParams.add(new BigInteger(index.toString()));
         try {
-            MessageScreenActivity.this.ethContract.executeConstantFunction("getMessageByIndex", functionParams, null, new BigInteger("50000"), new BigInteger("20000000000"), null, new Function2<PocketError, Object[], Unit>() {
+            MessageScreenActivity.this.ethContract.executeConstantFunction("getMessageByIndex", functionParams, null, new BigInteger("100000"), new BigInteger("10000000000"), null, new Function2<PocketError, Object[], Unit>() {
                 @Override
                 public Unit invoke(PocketError pocketError, Object[] result) {
                     if (pocketError != null) {
