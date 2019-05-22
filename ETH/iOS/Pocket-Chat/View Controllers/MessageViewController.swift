@@ -14,6 +14,8 @@ import BigInt
 
 class MessageViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
     
+   
+    
     var pocketEth: PocketEth?
     var ethContract:EthContract?
     var wallet:Wallet?
@@ -63,7 +65,7 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,10 +80,9 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
     @objc func refreshScreen (_ sender:UIButton?){
         self.messageList.removeAll()
 
-        
         do {
             //Create an aionContract Instance
-            let ethContract = try? EthContract.init(ethNetwork: pocketEth!.rinkeby!, address: AppConfig.smartContractAddress, abiDefinition: AppConfig.abiDefinition)
+            ethContract = try? EthContract.init(ethNetwork: pocketEth!.rinkeby!, address: AppConfig.smartContractAddress, abiDefinition: AppConfig.abiDefinition)
             
             //exececuteConstantFunciton
             try ethContract?.executeConstantFunction(functionName: "getTotalMessageCount", fromAddress: nil, gas: BigUInt(100000), gasPrice: BigUInt(10000000000), value: nil, blockTag: nil, callback: { (error, count) in
@@ -98,7 +99,8 @@ class MessageViewController: MessagesViewController, MessagesDataSource, Message
                         msgCount = msgCount - 1
                         
                         var indexNum:[AnyObject] = []
-                        indexNum.append(1 as AnyObject)
+                        indexNum.append(msgCount as AnyObject)
+
 
                         // executeConstantFunction can call getMessageByIndex
                         try self.ethContract?.executeConstantFunction(functionName: "getMessageByIndex", functionParams: indexNum, fromAddress: nil, gas: BigUInt(100000), gasPrice: BigUInt(10000000000), value: nil, blockTag: EthBlockTag.latest, callback: { (error, result) in
@@ -235,7 +237,6 @@ extension MessageViewController: InputBarAccessoryViewDelegate {
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
-       var pocketEth2: PocketEth?
         // Message
         let message = Message.init(messageId: UUID().uuidString, user: self.currentUser!, textMessage: text)
         let address = self.wallet?.address
@@ -248,33 +249,19 @@ extension MessageViewController: InputBarAccessoryViewDelegate {
         let action = UIAlertAction(title: "Yes", style: .default) { (UIAlertAction) in
             do {
        
-                 pocketEth2 = try PocketEth.init(devID: DeveloperConfig.devID, netIds: [PocketEth.Networks.Rinkeby.netID,PocketEth.Networks.Mainnet.netID])
-   
+                
                 // Params
-
-                
-                let address = self.wallet?.address
-                
-                let testing = "test2"
-                
                 var params: [AnyObject] = []
                 params.append(address as AnyObject)
                 params.append(String(text) as AnyObject)
                 
-                print(params)
-                
-                //print("the test params are: ", params)
-                
-                let ethContract2 = try EthContract.init(ethNetwork: pocketEth2!.rinkeby!, address: AppConfig.smartContractAddress, abiDefinition: AppConfig.abiDefinition)
-                
                 //executeFunction class
-                try ethContract2.executeFunction(functionName: "sendMessage", wallet: self.wallet!, functionParams: params, nonce: nil, gas: BigUInt(200000), gasPrice: BigUInt(10000000000), value: nil, callback: { (error, result) in
+                try self.ethContract?.executeFunction(functionName: "sendMessage", wallet: self.wallet!, functionParams: params, nonce: nil, gas: BigUInt(200000), gasPrice: BigUInt(10000000000), value: 0, callback: { (error, result) in
                     if error != nil {
                         print("Failed to send message with error: \(error!)")
                         return
                     }
                     print("\(result ?? "none")")
-                    print(result)
                 })
             } catch {
                 print(error)
