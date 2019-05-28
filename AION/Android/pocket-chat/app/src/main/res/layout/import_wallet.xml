@@ -7,7 +7,7 @@
     android:background="@drawable/b1x2">
 
     <EditText
-        android:id="@+id/private_key_text"
+        android:id="@+id/passphrase_text"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="80dp"
@@ -33,7 +33,7 @@
         android:textColor="#F7F6F6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/private_key_text" />
+        app:layout_constraintTop_toBottomOf="@+id/passphrase_text" />
 
     <Button
         android:id="@+id/create_wallet_btn"
@@ -50,7 +50,7 @@
         android:textColor="#F7F6F6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/private_key_text" />
+        app:layout_constraintTop_toBottomOf="@+id/passphrase_text" />
 
     <EditText
         android:id="@+id/dialog_title"
@@ -84,6 +84,6 @@
         android:text="Private Key"
         android:textAlignment="viewStart"
         android:textColor="#FAF7F7"
-        app:layout_constraintStart_toStartOf="@+id/private_key_text"
+        app:layout_constraintStart_toStartOf="@+id/passphrase_text"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

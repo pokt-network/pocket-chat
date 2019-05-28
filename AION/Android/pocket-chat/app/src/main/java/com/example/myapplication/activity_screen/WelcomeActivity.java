@@ -90,7 +90,7 @@ public class WelcomeActivity extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(WelcomeActivity.this);
         alertDialogBuilder.setView(promptView);
         // Dialog elements
-        final TextView editText = (TextView) promptView.findViewById(R.id.private_key_text);
+        final TextView editText = (TextView) promptView.findViewById(R.id.passphrase_text);
         final TextView titleText = (TextView) promptView.findViewById(R.id.dialog_title);
         // Set title
         titleText.setText(message);

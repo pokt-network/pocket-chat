@@ -61,7 +61,7 @@ public class MessageScreenActivity extends AppCompatActivity {
         // Instantiate PocketAion
         List<String> netIds = new ArrayList<>();
         netIds.add(PocketAion.Networks.MASTERY.getNetID());
-        this.pocketAion = new PocketAion(this.appContext, "", netIds, 5, 50000, "32");
+        this.pocketAion = new PocketAion(this.appContext, "DEVO7QQqPHCK2h3cGXhh2rY", netIds, 5, 50000, "32");
 
         // Set up the wallet
         Bundle extras = getIntent().getExtras();
@@ -104,7 +104,7 @@ public class MessageScreenActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                messageState.add(index, msg);
+                messageState.add(index - 1, msg);
                 Log.d("Message", msg.getText());
                 messagesView.setSelection(messagesView.getCount() - 1);
             }
@@ -119,7 +119,8 @@ public class MessageScreenActivity extends AppCompatActivity {
                 try {
                     messages.descendingKeySet();
                     for (TreeMap.Entry<Integer,Message> msg : messages.entrySet()) {
-                        messageState.add(msg.getKey(), msg.getValue());
+                        MessageScreenActivity.this.addMessage(msg.getKey(), msg.getValue());
+//                        messageState.add(msg.getKey(), msg.getValue());
                         Log.d("Message", msg.getValue().getText());
                     }
                     messagesView.setSelection(0);
@@ -148,9 +149,9 @@ public class MessageScreenActivity extends AppCompatActivity {
                     // Retrieve individual message
                     while (count > 0) {
                         count = count - 1;
+
                         MessageScreenActivity.this.getMessageWith(count);
                     }
-                    MessageScreenActivity.this.updateChatView();
                     return null;
                 }
             });
@@ -178,6 +179,9 @@ public class MessageScreenActivity extends AppCompatActivity {
                     }
                     Log.d("Message", msg.toString());
                     MessageScreenActivity.this.messages.put(index, msg);
+                    if (index == 1){
+                        MessageScreenActivity.this.updateChatView();
+                    }
                     return null;
                 }
             });

@@ -78,15 +78,13 @@ public class CreateWalletActivity extends Activity {
     }
 
     protected void showPassphraseDialog(Wallet wallet) {
-        // App context
-        Context appContext = this.appContext;
         // get passphrase_dialog.xml view
         LayoutInflater layoutInflater = LayoutInflater.from(CreateWalletActivity.this);
         View promptView = layoutInflater.inflate(R.layout.passphrase_dialog, null);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(CreateWalletActivity.this);
         alertDialogBuilder.setView(promptView);
 
-        final TextView editText = (TextView) promptView.findViewById(R.id.private_key_text);
+        final TextView passphraseText = (TextView) promptView.findViewById(R.id.passphrase_text);
         final TextView titleText = (TextView) promptView.findViewById(R.id.dialog_title);
         // setup a dialog window
         titleText.setText("Enter a new passphrase.");
@@ -94,8 +92,8 @@ public class CreateWalletActivity extends Activity {
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        if (editText.getText().toString().trim().length() > 0){
-                            String passphrase = editText.getText().toString();
+                        if (passphraseText.getText().toString().trim().length() > 0){
+                            String passphrase = passphraseText.getText().toString();
 
                             wallet.save(passphrase, appContext, new Function1<WalletPersistenceError, Unit>() {
                                 @Override

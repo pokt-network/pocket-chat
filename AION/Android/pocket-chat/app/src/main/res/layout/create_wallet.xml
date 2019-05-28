@@ -7,14 +7,14 @@
     android:background="@drawable/b1x2">
 
     <TextView
-        android:id="@+id/private_key_text"
+        android:id="@+id/passphrase_text"
         android:layout_width="181dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="8dp"
         android:background="#FFFFFF"
-        android:text="TextView"
+        android:text="Private Key"
         android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
         android:layout_marginEnd="20dp"
         android:background="#FFFFFF"
         android:editable="false"
-        android:text="TextView"
+        android:text="Public Address"
         android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
         android:textColor="#F7F6F6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/private_key_text" />
+        app:layout_constraintTop_toBottomOf="@+id/passphrase_text" />
 
     <Button
         android:id="@+id/continue_btn"
@@ -67,7 +67,7 @@
         android:textColor="#F7F6F6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/private_key_text" />
+        app:layout_constraintTop_toBottomOf="@+id/passphrase_text" />
 
     <EditText
         android:id="@+id/dialog_title"

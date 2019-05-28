@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.utils.AppConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +56,7 @@ public class ImportWalletActivity extends AppCompatActivity {
         this.pocketAion = new PocketAion(this.appContext,"", netIds,5,50000,"32");
     }
     protected void importWallet() {
-        TextView private_key_text = (TextView)findViewById(R.id.private_key_text);
+        TextView private_key_text = (TextView)findViewById(R.id.passphrase_text);
         String privateKey = private_key_text.getText().toString();
 
         if (privateKey.trim().length() > 0) {
@@ -87,15 +86,16 @@ public class ImportWalletActivity extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ImportWalletActivity.this);
         alertDialogBuilder.setView(promptView);
 
-        final TextView editText = (TextView) promptView.findViewById(R.id.private_key_text);
+        final TextView passphraseText = (TextView) promptView.findViewById(R.id.passphrase_text);
         final TextView titleText = (TextView) promptView.findViewById(R.id.dialog_title);
         // setup a dialog window
         titleText.setText("Enter a new passphrase.");
+        // setup a dialog window
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        if (editText.getText().toString().trim().length() > 0){
-                            String passphrase = editText.getText().toString();
+                        if (passphraseText.getText().toString().trim().length() > 0){
+                            String passphrase = passphraseText.getText().toString();
 
                             wallet.save(passphrase, ImportWalletActivity.this, new Function1<WalletPersistenceError, Unit>() {
                                 @Override
