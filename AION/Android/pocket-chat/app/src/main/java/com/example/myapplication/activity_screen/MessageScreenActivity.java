@@ -61,7 +61,7 @@ public class MessageScreenActivity extends AppCompatActivity {
         // Instantiate PocketAion
         List<String> netIds = new ArrayList<>();
         netIds.add(PocketAion.Networks.MASTERY.getNetID());
-        this.pocketAion = new PocketAion(this.appContext, "DEVO7QQqPHCK2h3cGXhh2rY", netIds, 5, 50000, "32");
+        pocketAion = new PocketAion(this.appContext,"",netIds,10,10000,"4");
 
         // Set up the wallet
         Bundle extras = getIntent().getExtras();

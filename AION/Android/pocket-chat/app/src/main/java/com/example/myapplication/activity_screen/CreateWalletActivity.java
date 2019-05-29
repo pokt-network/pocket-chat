@@ -27,11 +27,17 @@ public class CreateWalletActivity extends Activity {
     PocketAion pocketAion;
     Context appContext;
     Wallet wallet;
+    TextView publicView;
+    TextView privateView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_wallet);
+
+        // display addresses:
+        publicView = (TextView)findViewById(R.id.public_key_text);
+        privateView = (TextView)findViewById(R.id.passphrase_text);
 
         // Create wallet and continue button
         Button create_W = (Button)findViewById(R.id.import_wallet_btn);
@@ -48,7 +54,7 @@ public class CreateWalletActivity extends Activity {
         continue_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View cs) {
-                loadMessagesActivity();
+                continueAction();
             }
         } );
         // Set app context
@@ -62,6 +68,11 @@ public class CreateWalletActivity extends Activity {
     protected void createWallet() {
         wallet = this.pocketAion.getMastery().createWallet();
 
+        publicView.setText(wallet.getAddress());
+        privateView.setText(wallet.getPrivateKey());
+    }
+
+    protected void continueAction() {
         showPassphraseDialog(wallet);
     }
 

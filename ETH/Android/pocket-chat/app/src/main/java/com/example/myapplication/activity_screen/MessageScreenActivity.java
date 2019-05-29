@@ -104,7 +104,7 @@ public class MessageScreenActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                messageState.add(index, msg);
+                messageState.add(index - 1, msg);
                 Log.d("Message", msg.getText());
                 messagesView.setSelection(messagesView.getCount() - 1);
             }
@@ -119,7 +119,7 @@ public class MessageScreenActivity extends AppCompatActivity {
                 try {
                     messages.descendingKeySet();
                     for (TreeMap.Entry<Integer,Message> msg : messages.entrySet()) {
-                        messageState.add(msg.getKey(), msg.getValue());
+                        MessageScreenActivity.this.addMessage(msg.getKey(), msg.getValue());
                         Log.d("Message", msg.getValue().getText());
                     }
                     messagesView.setSelection(0);
@@ -150,7 +150,6 @@ public class MessageScreenActivity extends AppCompatActivity {
                         count = count - 1;
                         MessageScreenActivity.this.getMessageWith(count);
                     }
-                    MessageScreenActivity.this.updateChatView();
                     return null;
                 }
             });
@@ -178,6 +177,9 @@ public class MessageScreenActivity extends AppCompatActivity {
                     }
                     Log.d("Message", msg.toString());
                     MessageScreenActivity.this.messages.put(index, msg);
+                    if (index == 1){
+                        MessageScreenActivity.this.updateChatView();
+                    }
                     return null;
                 }
             });

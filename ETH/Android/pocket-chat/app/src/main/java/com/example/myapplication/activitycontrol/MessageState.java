@@ -58,20 +58,24 @@ public class MessageState extends BaseAdapter {
         LayoutInflater messageInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         Message message = messages.get(i);
 
-         // this message was sent by us so let's create a basic chat bubble on the right
-        if (message.belongsToCurrentUser()) {
-            convertView = messageInflater.inflate(R.layout.my_message, null);
-            holder.messageBody = (TextView) convertView.findViewById(R.id.message_body);
-            convertView.setTag(holder);
-            holder.messageBody.setText(message.getText());
-        } else {
-            convertView = messageInflater.inflate(R.layout.other_message, null);
-            holder.messageBody = (TextView) convertView.findViewById(R.id.message_body);
-            holder.name = (TextView) convertView.findViewById(R.id.name);
-            convertView.setTag(holder);
+        try {
+            // this message was sent by us so let's create a basic chat bubble on the right
+            if (message.belongsToCurrentUser()) {
+                convertView = messageInflater.inflate(R.layout.my_message, null);
+                holder.messageBody = (TextView) convertView.findViewById(R.id.message_body);
+                convertView.setTag(holder);
+                holder.messageBody.setText(message.getText());
+            } else {
+                convertView = messageInflater.inflate(R.layout.other_message, null);
+                holder.messageBody = (TextView) convertView.findViewById(R.id.message_body);
+                holder.name = (TextView) convertView.findViewById(R.id.name);
+                convertView.setTag(holder);
 
-            holder.name.setText(message.getUsername());
-            holder.messageBody.setText(message.getText());
+                holder.name.setText(message.getUsername());
+                holder.messageBody.setText(message.getText());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return convertView;

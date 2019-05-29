@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b1x2">
+    android:background="@mipmap/b1x2">
 
     <TextView
         android:id="@+id/passphrase_text"
